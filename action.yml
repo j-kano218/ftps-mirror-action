@@ -1,0 +1,40 @@
+name: ftps mirror action
+description: lftp mirror via FTP over TLS
+inputs:
+  host:
+    description: FTP host
+    required: true
+  username:
+    description: FTP account username
+    required: true
+  password:
+    description: FTP account password
+    required: true
+  port:
+    description: port
+    required: false
+    default: 21
+  debug:
+    description: with -d option
+    required: false
+    default: false
+  check:
+    description: should check hostname
+    required: false
+    default: true
+  local:
+    description: local folder
+    required: false
+    default: '.'
+  remote:
+    description: remote folder
+    required: false
+    default: '.'
+  options:
+    description: options in lftp mirror command
+    required: false
+    default: ''
+    
+runs:
+  using: docker
+  image: Dockerfile
